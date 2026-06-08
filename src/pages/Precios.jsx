@@ -1,5 +1,6 @@
 import { useState } from "react";
-
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 const ACCENT = "#E8303A";
 const GRAY_50 = "#F8F9FB";
 const GRAY_100 = "#F1F3F6";
@@ -13,7 +14,7 @@ const PLANS = [
     name: "Plan Pianissimo",
     emoji: "🎶",
     tagline: "Para charangas pequeñas",
-    price: 9,
+    price: 25,
     limit: "Hasta 25 músicos",
     popular: false,
     color: "#059669",
@@ -36,7 +37,7 @@ const PLANS = [
     name: "Plan Forte",
     emoji: "🎺",
     tagline: "Para charangas medianas",
-    price: 19,
+    price: 50,
     limit: "Hasta 50 músicos",
     popular: true,
     color: ACCENT,
@@ -59,7 +60,7 @@ const PLANS = [
     name: "Plan Fortissimo",
     emoji: "🥁",
     tagline: "Para charangas grandes",
-    price: 39,
+    price: 80,
     limit: "Músicos ilimitados",
     popular: false,
     color: "#7C3AED",
@@ -100,36 +101,7 @@ const MODULES = [
   { icon: "📄", name: "Documentos", pianissimo: false, forte: false, fortissimo: true },
 ];
 
-function Navbar() {
-  return (
-    <nav style={{ background: "#fff", boxShadow: "0 1px 0 rgba(0,0,0,0.06)", position: "sticky", top: 0, zIndex: 100 }}>
-      <div style={{ maxWidth: 1160, margin: "0 auto", padding: "0 2rem", display: "flex", alignItems: "center", justifyContent: "space-between", height: 68 }}>
-        <a href="/" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
-          <span style={{ fontSize: 24 }}>🎺</span>
-          <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 800, fontSize: 20, color: GRAY_900, letterSpacing: "-0.5px" }}>
-            Charang<span style={{ color: ACCENT }}>app</span>
-          </span>
-        </a>
-        <div style={{ display: "flex", gap: 28, alignItems: "center" }}>
-          {[["Funcionalidades", "/"], ["Módulos", "/"], ["FAQ", "#faq"]].map(([l, h]) => (
-            <a key={l} href={h} style={{ color: GRAY_600, fontSize: 14, fontFamily: "'Inter', sans-serif", fontWeight: 500, textDecoration: "none", transition: "color 0.2s" }}
-              onMouseEnter={e => e.target.style.color = ACCENT}
-              onMouseLeave={e => e.target.style.color = GRAY_600}
-            >{l}</a>
-          ))}
-          <button style={{
-            background: ACCENT, color: "#fff", border: "none", borderRadius: 10,
-            padding: "10px 22px", fontFamily: "'Inter', sans-serif", fontWeight: 600, fontSize: 14,
-            cursor: "pointer", boxShadow: `0 4px 16px ${ACCENT}35`, transition: "all 0.2s",
-          }}
-            onMouseEnter={e => { e.currentTarget.style.background = "#C8232C"; e.currentTarget.style.transform = "translateY(-1px)"; }}
-            onMouseLeave={e => { e.currentTarget.style.background = ACCENT; e.currentTarget.style.transform = "translateY(0)"; }}
-          >Solicitar Demo</button>
-        </div>
-      </div>
-    </nav>
-  );
-}
+
 
 function PlanCards() {
   return (
@@ -363,29 +335,7 @@ function CTA() {
   );
 }
 
-function Footer() {
-  return (
-    <footer style={{ background: GRAY_900, padding: "32px 2rem" }}>
-      <div style={{ maxWidth: 1160, margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 16 }}>
-        <a href="/" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
-          <span style={{ fontSize: 20 }}>🎺</span>
-          <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 800, fontSize: 18, color: "#fff", letterSpacing: "-0.5px" }}>
-            Charang<span style={{ color: ACCENT }}>app</span>
-          </span>
-        </a>
-        <div style={{ display: "flex", gap: 28 }}>
-          {["Privacidad", "Términos", "Cookies", "Contacto"].map(l => (
-            <a key={l} href="#" style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: "rgba(255,255,255,0.3)", textDecoration: "none", transition: "color 0.2s" }}
-              onMouseEnter={e => e.target.style.color = "#fff"}
-              onMouseLeave={e => e.target.style.color = "rgba(255,255,255,0.3)"}
-            >{l}</a>
-          ))}
-        </div>
-        <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, color: "rgba(255,255,255,0.2)", margin: 0 }}>© 2026 Charangapp</p>
-      </div>
-    </footer>
-  );
-}
+
 
 export default function Precios() {
   return (

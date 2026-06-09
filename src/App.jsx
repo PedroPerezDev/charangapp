@@ -11,14 +11,14 @@ const GRAY_600 = "#4B5563";
 const GRAY_900 = "#111827";
 
 const FEATURES = [
-  { icon: "👥", title: "Gestión de Músicos", desc: "Alta, edición y baja de músicos con foto, teléfono e instrumentos. Marca músicos de confianza y gestiona su actividad fácilmente." },
-  { icon: "🎪", title: "Actuaciones", desc: "Crea y edita actuaciones con fecha, lugar y músicos asignados. Distingue entre músicos fijos e invitados en cada fecha." },
+  { icon: "👥", title: "Gestión de Músicos", desc: "Alta, edición y baja de músicos con foto, teléfono e instrumentos. Marca músicos de confianza para convocarlos rápidamente." },
+  { icon: "🎪", title: "Actuaciones", desc: "Crea actuaciones con fecha, lugar y hora. Envía convocatorias, recibe confirmaciones y cierra el grupo definitivo con un clic." },
+  { icon: "📲", title: "Convocatoria y WhatsApp", desc: "Envía la convocatoria a tus músicos de confianza, gestiona las confirmaciones en tiempo real y comparte el grupo definitivo por WhatsApp." },
   { icon: "💰", title: "Pagos y Cobros", desc: "Asigna importes individuales por actuación, gestiona pagos de desplazamiento y controla en tiempo real lo cobrado y lo pendiente." },
-  { icon: "📊", title: "Estadísticas", desc: "Panel con gráficos de ingresos, ranking de músicos por actuaciones, calendario mensual y totales de recaudación." },
-  { icon: "📱", title: "Portal del Músico", desc: "Cada músico tiene su propio acceso para ver su historial de actuaciones, cobros pendientes y total ganado en el año." },
-  { icon: "📧", title: "Invitaciones por Email", desc: "Sistema de invitaciones seguras con tokens de un solo uso. Da acceso a admins y músicos sin complicaciones." },
+  { icon: "📊", title: "Estadísticas", desc: "Panel con gráficos de ingresos, ranking de músicos, calendario mensual y balance financiero real incluyendo pagos a músicos." },
+  { icon: "📱", title: "Portal del Músico", desc: "Cada músico tiene su propio acceso para confirmar actuaciones, ver su historial de cobros y el total ganado en el año." },
+  { icon: "💼", title: "Gastos e Ingresos", desc: "Registra y categoriza todos los gastos e ingresos de la charanga. Obtén el balance real de cada actuación y del año completo." },
   { icon: "🏢", title: "Multi-organización", desc: "Un mismo administrador puede gestionar varias charangas desde una sola cuenta. Ideal para gestores profesionales." },
-  { icon: "🌓", title: "Tema Claro y Oscuro", desc: "Toda la aplicación soporta modo claro y oscuro. Cada músico elige el que prefiere desde su perfil." },
 ];
 
 const STEPS = [
@@ -31,54 +31,69 @@ const STEPS = [
 const FAQS = [
   { q: "¿Para qué tipo de charanga es Charangapp?", a: "Para cualquier charanga de fiestas patronales, independientemente del tamaño. Desde grupos de 10 músicos hasta organizaciones con más de 100." },
   { q: "¿Los músicos tienen que pagar algo?", a: "No. El portal del músico es completamente gratuito para ellos. Solo paga la directiva de la charanga." },
-  { q: "¿Puedo gestionar varias charangas con una sola cuenta?", a: "Sí. Charangapp soporta multi-organización, por lo que puedes gestionar varias charangas desde el mismo acceso de administrador." },
+  { q: "¿Puedo gestionar varias charangas con una sola cuenta?", a: "Sí, con el Plan Fortissimo puedes gestionar varias charangas desde el mismo acceso de administrador." },
   { q: "¿Cómo funciona el sistema de pagos?", a: "Puedes asignar un importe por defecto a cada actuación y ajustarlo individualmente por músico. También puedes registrar pagos de desplazamiento por vehículo de forma separada." },
-  { q: "¿Es segura la aplicación?", a: "Sí. Usamos Supabase como base de datos con cifrado de datos y cumplimos la normativa RGPD. Las invitaciones usan tokens de un solo uso con 7 días de validez." },
+  { q: "¿Qué incluye la gestión de gastos e ingresos?", a: "Puedes registrar cualquier gasto (local, uniformes, material...) e ingreso (lotería, donaciones, subvenciones...) de la charanga, asociarlos a una actuación concreta y ver el balance financiero real en las estadísticas." },
   { q: "¿Puedo probarla antes de contratar?", a: "Sí, ofrecemos 1 mes de prueba gratuita con todas las funcionalidades activas y sin necesidad de tarjeta de crédito." },
 ];
 
 const PLANS = [
   {
-    name: "Plan Pianissimo", emoji: "🎶", price: 9,
+    name: "Plan Pianissimo", emoji: "🎶", price: 25,
     limit: "Hasta 25 músicos", popular: false, color: "#059669",
     items: [
       "Hasta 25 músicos activos",
-      "Gestión de actuaciones ilimitadas",
+      "Actuaciones ilimitadas",
       "Control de pagos y cobros",
       "Portal del músico incluido",
       "Invitaciones por email",
       "Estadísticas básicas",
     ],
+    notIncluded: [
+      "Gestión de gastos e ingresos",
+      "Balance financiero",
+      "Multi-organización",
+      "Convocatoria y confirmación de asistencia",
+"Compartir grupo por WhatsApp",
+    ],
   },
   {
-    name: "Plan Forte", emoji: "🎺", price: 19,
+    name: "Plan Forte", emoji: "🎺", price: 50,
     limit: "Hasta 50 músicos", popular: true, color: ACCENT,
     items: [
       "Hasta 50 músicos activos",
-      "Gestión de actuaciones ilimitadas",
+      "Actuaciones ilimitadas",
       "Control de pagos y cobros",
       "Portal del músico incluido",
       "Invitaciones por email",
       "Estadísticas completas + gráficos",
-      "Calendario de actuaciones",
-      "Exportación de datos",
+      "Gestión de gastos e ingresos",
+      "Balance financiero por actuación",
+      "Convocatoria con músicos de confianza",
+"Compartir grupo definitivo por WhatsApp",
+    ],
+    notIncluded: [
+      "Multi-organización",
     ],
   },
   {
-    name: "Plan Fortissimo", emoji: "🥁", price: 39,
+    name: "Plan Fortissimo", emoji: "🥁", price: 70,
     limit: "Músicos ilimitados", popular: false, color: "#7C3AED",
     items: [
       "Músicos ilimitados",
-      "Gestión de actuaciones ilimitadas",
+      "Actuaciones ilimitadas",
       "Control de pagos y cobros",
       "Portal del músico incluido",
       "Invitaciones por email",
       "Estadísticas completas + gráficos",
-      "Calendario de actuaciones",
-      "Exportación de datos",
+      "Gestión de gastos e ingresos",
+      "Balance financiero por actuación",
       "Multi-organización",
       "Soporte prioritario WhatsApp",
+      "Convocatoria con músicos de confianza",
+"Compartir grupo definitivo por WhatsApp",
     ],
+    notIncluded: [],
   },
 ];
 
@@ -154,7 +169,7 @@ function Hero() {
             fontFamily: "'Inter', sans-serif", fontSize: "clamp(1rem, 2.2vw, 1.15rem)",
             color: GRAY_600, lineHeight: 1.75, maxWidth: 580, margin: "0 auto 44px",
           }}>
-            Músicos, actuaciones y pagos en un solo lugar. Con portal propio para cada músico y control total para la directiva.
+            Músicos, actuaciones, pagos y finanzas en un solo lugar. Con portal propio para cada músico y control total para la directiva.
           </p>
         </Anim>
         <Anim delay={180}>
@@ -181,7 +196,7 @@ function Hero() {
         </Anim>
         <Anim delay={240}>
           <div style={{ display: "flex", gap: 36, justifyContent: "center", flexWrap: "wrap" }}>
-            {[["👥", "Músicos y pagos"], ["📊", "Estadísticas"], ["📱", "Portal del músico"], ["🔒", "RGPD"]].map(([icon, label]) => (
+            {[["👥", "Músicos y pagos"], ["💼", "Gastos e ingresos"], ["📊", "Estadísticas"], ["📱", "Portal del músico"]].map(([icon, label]) => (
               <div key={label} style={{ display: "flex", alignItems: "center", gap: 6 }}>
                 <span style={{ fontSize: 14 }}>{icon}</span>
                 <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: GRAY_600, fontWeight: 500 }}>{label}</span>
@@ -213,7 +228,7 @@ function WhatIs() {
               badge: "Panel Web", badgeColor: ACCENT, icon: "💻",
               title: "Para la Directiva",
               desc: "Control total de la charanga desde el navegador.",
-              items: ["Alta y gestión de músicos con foto e instrumentos", "Creación y gestión de actuaciones", "Asignación de pagos individuales por actuación", "Control de cobros pendientes y cobrados", "Estadísticas, gráficos y ranking de músicos", "Invitaciones por email con tokens seguros"],
+              items: ["Alta y gestión de músicos con foto e instrumentos", "Creación y gestión de actuaciones", "Asignación de pagos individuales por actuación", "Gestión de gastos e ingresos por categoría", "Balance financiero real por actuación y anual", "Estadísticas, gráficos y ranking de músicos"],
             },
             {
               badge: "Portal del Músico", badgeColor: "#059669", icon: "📱",
@@ -368,14 +383,21 @@ function Pricing() {
                   <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, color: GRAY_400, marginLeft: 4 }}>/mes</span>
                 </div>
                 <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, color: GRAY_400, marginBottom: 24 }}>+ IVA · Sin permanencia</p>
-                <ul style={{ listStyle: "none", padding: 0, margin: "0 0 28px", display: "flex", flexDirection: "column", gap: 11, flex: 1 }}>
+                <ul style={{ listStyle: "none", padding: 0, margin: "0 0 12px", display: "flex", flexDirection: "column", gap: 11, flex: 1 }}>
                   {plan.items.map(item => (
                     <li key={item} style={{ display: "flex", alignItems: "center", gap: 10 }}>
                       <span style={{ color: plan.color, fontSize: 13, fontWeight: 700, flexShrink: 0 }}>✓</span>
                       <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 13.5, color: GRAY_600 }}>{item}</span>
                     </li>
                   ))}
+                  {plan.notIncluded.map(item => (
+                    <li key={item} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                      <span style={{ color: GRAY_200, fontSize: 13, fontWeight: 700, flexShrink: 0 }}>✕</span>
+                      <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 13.5, color: GRAY_200, textDecoration: "line-through" }}>{item}</span>
+                    </li>
+                  ))}
                 </ul>
+                <div style={{ marginBottom: 24 }} />
                 <button style={{ width: "100%", padding: "14px", background: plan.popular ? ACCENT : "#fff", color: plan.popular ? "#fff" : GRAY_900, border: plan.popular ? "none" : `1.5px solid ${GRAY_200}`, borderRadius: 12, fontFamily: "'Inter', sans-serif", fontWeight: 700, fontSize: 15, cursor: "pointer", boxShadow: plan.popular ? `0 4px 20px ${ACCENT}40` : "none", transition: "all 0.2s" }}
                   onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-1px)"; if (plan.popular) { e.currentTarget.style.background = "#C8232C"; } else { e.currentTarget.style.borderColor = plan.color; e.currentTarget.style.color = plan.color; } }}
                   onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; if (plan.popular) { e.currentTarget.style.background = ACCENT; } else { e.currentTarget.style.borderColor = GRAY_200; e.currentTarget.style.color = GRAY_900; } }}

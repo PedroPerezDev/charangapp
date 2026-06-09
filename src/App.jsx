@@ -234,7 +234,7 @@ function WhatIs() {
               badge: "Portal del Músico", badgeColor: "#059669", icon: "📱",
               title: "Para los Músicos",
               desc: "Cada músico tiene su propio acceso personal.",
-              items: ["Login con usuario y contraseña propios", "Historial completo de actuaciones", "Ver cobros pendientes y cobrados", "Total ganado en el año y total histórico", "Modo claro y oscuro a su gusto", "Acceso desde móvil y ordenador"],
+              items: ["Login con usuario y contraseña propios", "Historial completo de actuaciones", "Ver cobros pendientes y cobrados", "Total ganado en el año y total histórico", "Acceso desde móvil y ordenador"],
             },
           ].map(({ badge, badgeColor, icon, title, desc, items }) => (
             <Anim key={title}>

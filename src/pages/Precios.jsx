@@ -271,7 +271,7 @@ export default function Precios() {
         <section style={{ background: `linear-gradient(180deg, #fff 60%, ${GRAY_50} 100%)`, padding: "100px 2rem 72px", textAlign: "center" }}>
           <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "#FEF3C7", border: "1px solid #FDE68A", borderRadius: 100, padding: "6px 16px", marginBottom: 28 }}>
             <span style={{ fontSize: 13 }}>🎉</span>
-            <span style={{ color: "#B45309", fontSize: 13, fontFamily: "'Inter', sans-serif", fontWeight: 600 }}>1 mes gratis · Sin tarjeta de crédito</span>
+            <span style={{ color: "#B45309", fontSize: 13, fontFamily: "'Inter', sans-serif", fontWeight: 600 }}>1 mes gratis</span>
           </div>
           <h1 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 800, fontSize: "clamp(2.4rem, 5vw, 3.8rem)", color: GRAY_900, letterSpacing: "-2px", marginBottom: 18, lineHeight: 1.05 }}>
             Elige el plan de tu charanga

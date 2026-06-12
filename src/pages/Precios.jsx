@@ -143,7 +143,7 @@ function PlanCards() {
             onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-1px)"; if (plan.popular) { e.currentTarget.style.background = "#C8232C"; } else { e.currentTarget.style.borderColor = plan.color; e.currentTarget.style.color = plan.color; } }}
             onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; if (plan.popular) { e.currentTarget.style.background = ACCENT; } else { e.currentTarget.style.borderColor = GRAY_200; e.currentTarget.style.color = GRAY_900; } }}
           >Empezar con {plan.name.split(" ")[1]} →</button>
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, color: GRAY_400, textAlign: "center", marginTop: 10 }}>1 mes gratis · Sin tarjeta</p>
+          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, color: GRAY_400, textAlign: "center", marginTop: 10 }}>1 mes gratis</p>
         </div>
       ))}
     </div>
